@@ -12,44 +12,43 @@ Se requiere diseñar una base de datos para administrar el inventario y los pré
 ## 2. Descripción de las Entidades y Atributos
 
 * **`Autor`**
-  * `idAutor` (INT, PK)[cite: 4]
-  * `nombre` (VARCHAR)[cite: 4]
-  * `nacionalidad` (VARCHAR)[cite: 4]
-
+  * `idAutor` (INT, PK)
+  * `nombre` (VARCHAR)
+  * `nacionalidad` (VARCHAR)
 * **`Libro`**
-  * `idLibro` (INT, PK)[cite: 4]
-  * `titulo` (VARCHAR)[cite: 4]
-  * `isbn` (VARCHAR)[cite: 4]
-  * `stock` (INT)[cite: 4]
+  * `idLibro` (INT, PK)
+  * `titulo` (VARCHAR)
+  * `isbn` (VARCHAR)
+  * `stock` (INT)
 
 * **`Libro_Autor` (Tabla Intermedia)**
-  * `Libro_idLibro` (INT, PK/FK)[cite: 4]
-  * `Autor_idAutor` (INT, PK/FK)[cite: 4]
+  * `Libro_idLibro` (INT, PK/FK)
+  * `Autor_idAutor` (INT, PK/FK)
 
 * **`Lector`**
-  * `idLector` (INT, PK)[cite: 4]
-  * `nombre` (VARCHAR)[cite: 4]
-  * `telefono` (VARCHAR)[cite: 4]
-  * `direccion` (VARCHAR)[cite: 4]
+  * `idLector` (INT, PK)
+  * `nombre` (VARCHAR)
+  * `telefono` (VARCHAR)
+  * `direccion` (VARCHAR)
 
 * **`Prestamo`**
-  * `idPrestamo` (INT, PK)[cite: 4]
-  * `fecha_prestamo` (DATE)[cite: 4]
-  * `fecha_devolucion` (DATE)[cite: 4]
-  * `id_lector` (INT, FK)[cite: 4]
+  * `idPrestamo` (INT, PK)
+  * `fecha_prestamo` (DATE)
+  * `fecha_devolucion` (DATE)
+  * `id_lector` (INT, FK)
 
 * **`Detalle_Prestamo` (Tabla Intermedia)**
-  * `id_detalle` (INT, PK)[cite: 4]
-  * `id_prestamo` (INT, FK)[cite: 4]
-  * `id_libro` (INT, FK)[cite: 4]
+  * `id_detalle` (INT, PK)
+  * `id_prestamo` (INT, FK)
+  * `id_libro` (INT, FK)
 
 ---
 
 ## 3. Explicación de las Relaciones
 
-1. **Autor y Libro (Muchos a Muchos - N:M):** Se conecta mediante la tabla intermedia `Libro_Autor`, permitiendo que un libro tenga varios autores y un autor escriba varios libros[cite: 4].
-2. **Lector y Préstamo (Uno a Muchos - 1:N):** Un lector puede realizar múltiples préstamos a lo largo del tiempo, pero un préstamo individual pertenece a un solo lector[cite: 4].
-3. **Prestamo y Detalle_Prestamo / Libro (Muchos a Muchos - N:M):** Un préstamo puede registrar varios libros mediante la tabla `Detalle_Prestamo`[cite: 4].
+1. **Autor y Libro (Muchos a Muchos - N:M):** Se conecta mediante la tabla intermedia `Libro_Autor`, permitiendo que un libro tenga varios autores y un autor escriba varios libros.
+2. **Lector y Préstamo (Uno a Muchos - 1:N):** Un lector puede realizar múltiples préstamos a lo largo del tiempo, pero un préstamo individual pertenece a un solo lector.
+3. **Prestamo y Detalle_Prestamo / Libro (Muchos a Muchos - N:M):** Un préstamo puede registrar varios libros mediante la tabla `Detalle_Prestamo`.
 
 ---
 
